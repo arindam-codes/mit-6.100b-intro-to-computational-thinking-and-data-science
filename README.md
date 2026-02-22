@@ -19,8 +19,6 @@ The goal is not just to "complete assignments" but to:
   * Mathematics & Computing
   * AI/ML systems
 
-This is part of a long-term 10-year roadmap toward becoming a one-man quantitative research and AI systems builder.
-
 ---
 
 ## 🧠 Topics Covered
