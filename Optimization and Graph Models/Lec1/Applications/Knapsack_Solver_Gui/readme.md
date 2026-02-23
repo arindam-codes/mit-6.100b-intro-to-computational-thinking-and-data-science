@@ -2,7 +2,7 @@
 
 ---
 
-**Create a simple graphical interface where you can:**
+## **Create a simple graphical interface where you can:**
 
 - Add items (name, value, weight)
 -  Set max weight
