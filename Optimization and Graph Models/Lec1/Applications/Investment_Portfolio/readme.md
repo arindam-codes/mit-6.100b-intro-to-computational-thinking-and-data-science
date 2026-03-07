@@ -1,10 +1,10 @@
-# 💰 Greedy Stock Selection — 0/1 Knapsack Exploration
+# Greedy Stock Selection — 0/1 Knapsack Exploration
 
-A small modeling exercise inspired by **MIT 6.100B (Lecture 1)** to explore greedy strategies for a constrained investment problem.
+A small modeling exercise inspired by **MIT 6.100B (Lecture 1)** 
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 You have a fixed budget and a set of stocks.
 
@@ -23,7 +23,7 @@ This models the classic **0/1 Knapsack problem**.
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 | Stock | Price ($) | Expected Return ($) |
 | ----- | --------- | ------------------- |
@@ -36,19 +36,17 @@ This models the classic **0/1 Knapsack problem**.
 | NFLX  | 500       | 40                  |
 | NVDA  | 800       | 70                  |
 
-Example Budget Used: `$1000`
+Example Budget Used: $1000
 
 ---
 
-## 🧠 What This Explores
+## This Explores
 
 Instead of solving the full dynamic programming knapsack, this project compares **three greedy heuristics**:
 
 1. **Highest Expected Return First**
 2. **Lowest Cost First**
 3. **Highest Return per Dollar (Value/Weight Ratio)**
-
-Each strategy sorts stocks differently before selecting within budget.
 
 ---
 
@@ -62,14 +60,6 @@ Each stock is modeled as a class:
 class StockTicker:
     def __init__(self, name, price, expectedReturn):
 ```
-
-Encapsulation allows:
-
-* Cleaner sorting logic
-* Flexible key functions
-* Strategy comparison
-
----
 
 ### Generic Greedy Solver
 
@@ -89,9 +79,7 @@ This allows easy comparison of heuristics.
 
 ## 🔍 Observations
 
-* Greedy by raw expected return does not always maximize efficiency.
-* Greedy by lowest cost may select many low-impact assets.
-* Greedy by return-per-dollar tends to perform better but is still not guaranteed optimal.
+ Greedy by return-per-dollar tends to perform better but is still not guaranteed optimal.
 
 This demonstrates an important concept:
 
@@ -99,7 +87,7 @@ This demonstrates an important concept:
 
 ---
 
-## ⚖️ Why This Matters
+## Why This Matters
 
 This exercise reinforces:
 
@@ -117,7 +105,7 @@ It also connects to broader themes in:
 
 ---
 
-## 🚀 Possible Extensions
+## Possible Extensions
 
 * Implement full dynamic programming knapsack
 * Add fractional knapsack comparison
@@ -127,7 +115,7 @@ It also connects to broader themes in:
 
 ---
 
-## 📚 Learning Context
+## Learning Context
 
 Built while studying:
 
@@ -137,7 +125,7 @@ Built while studying:
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This is a learning exercise for algorithmic modeling.
 It is not financial advice or a real investment strategy.
