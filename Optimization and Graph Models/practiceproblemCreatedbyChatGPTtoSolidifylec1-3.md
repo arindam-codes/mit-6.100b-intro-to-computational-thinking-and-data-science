@@ -109,11 +109,39 @@ One can **recursively enumerate** choices: at each vertex, decide which subset o
 
 ```mermaid
 flowchart TB
-  Start[State: (s, cap=0, risk=0, profit=0)] --> Branch1{At vertex v, consider next task i?}
-  Branch1 -- take --> NewState1
-  Branch1 -- skip --> NewState2
-  NewState1 --> Next{Edge choices}
-  NewState2 --> Next
+
+    Start["State: v | cap | risk | profit"]
+
+    Start --> TaskDecision{"Any tasks left at v"}
+
+    TaskDecision -->|Take task i| TakeTask["Update cap<br/>Update risk<br/>Update profit"]
+
+    TaskDecision -->|Skip task i| SkipTask["No state change"]
+
+    TakeTask --> TaskDecision
+    SkipTask --> TaskDecision
+
+    TaskDecision -->|No tasks left| TaskDone["Task selection complete"]
+
+    TaskDone --> EdgeDecision{"Any outgoing edges"}
+
+    EdgeDecision -->|Traverse v → u| TraverseEdge["Move to u<br/>Update travel cost"]
+
+    EdgeDecision -->|No outgoing edges| CheckTarget{"Is v = target t"}
+
+    TraverseEdge --> NewState["State: u | cap | risk | profit"]
+
+    NewState --> TaskDecision
+
+    CheckTarget -->|Yes| Goal["Record profit<br/>Backtrack"]
+
+    CheckTarget -->|No| DeadEnd["Prune path"]
+
+    Goal --> Backtrack["Explore remaining branches"]
+
+    DeadEnd --> Backtrack
+
+    Backtrack --> EdgeDecision
 ```
 
 Such brute force has **exponential** branching (choosing tasks and paths).  It runs in ~\(O(2^T)\) for tasks and \(O(2^N)\) for path choices, i.e. **O(2^(N+T))** in worst case.  This is only feasible for very small \(N,T\) (subtask 1).
